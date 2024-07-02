@@ -2,17 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -24,15 +13,107 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.timer-controls {
+  margin-bottom: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.timer-button {
+  background-color: black;
+  color: white;
+  border: 2px solid white;
+  border-radius: 15px;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.timer-button:hover {
+  background-color: white;
+  color: black;
+}
+
+.timer {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 2px solid white;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px 0;
+  font-size: 2em;
+  color: white;
+  position: relative;
+}
+
+.timer span {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.score-container {
+  display: flex;
+  width: 100%;
+  height: 50vh;
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+  justify-content: space-around;
+}
+
+.team {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 50px;
+}
+
+.red {
+  background-color: red;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.point-button,
+.fault-button {
+  background-color: white;
+  color: black;
+  border: 2px solid white;
+  border-radius: 15px;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.point-button:hover,
+.fault-button:hover {
+  background-color: black;
+  color: white;
+}
+
+.red-button {
+  background-color: #ff4c4c;
+  color: white;
+}
+
+.blue-button {
+  background-color: #4c4cff;
+  color: white;
+}
+
+.red-button:hover,
+.blue-button:hover {
+  background-color: white;
+  color: black;
+}
+
+.faults {
+  margin-top: 10px;
+}
+
+.fault {
+  color: white;
+  font-size: 1.5em;
+  margin: 0 2px;
 }
