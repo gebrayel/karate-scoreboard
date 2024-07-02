@@ -37,6 +37,10 @@ function App() {
 
   const resetTimer = () => {
     setTime(initialTime);
+    setPointsRed(0);
+    setPointsBlue(0);
+    setFaultsRed(0);
+    setFaultsBlue(0);
     setIntervalId(null);
   };
 
@@ -62,18 +66,35 @@ function App() {
       <header className="App-header">
         <h1>Karate Score Counter</h1>
         <div className="timer-controls">
-          <button className="timer-button" onClick={() => setTimer(60)}>1:00</button>
-          <button className="timer-button" onClick={() => setTimer(90)}>1:30</button>
-          <button className="timer-button" onClick={() => setTimer(120)}>2:00</button>
-          <button className="timer-button" onClick={startTimer}>Start</button>
-          <button className="timer-button" onClick={stopTimer}>Stop</button>
-          <button className="timer-button" onClick={resetTimer}>Reset</button>
+          <button className="timer-button" onClick={() => setTimer(60)}>
+            1:00
+          </button>
+          <button className="timer-button" onClick={() => setTimer(90)}>
+            1:30
+          </button>
+          <button className="timer-button" onClick={() => setTimer(120)}>
+            2:00
+          </button>
+          <button className="timer-button" onClick={startTimer}>
+            Start
+          </button>
+          <button className="timer-button" onClick={stopTimer}>
+            Stop
+          </button>
+          <button className="timer-button" onClick={resetTimer}>
+            Reset
+          </button>
         </div>
         <div className="timer">
           <span>
             {Math.floor(time / 60000)}:
-            {Math.floor((time % 60000) / 1000).toString().padStart(2, '0')}:
-            {Math.floor((time % 1000) / 10).toString().padStart(2, '0')}
+            {Math.floor((time % 60000) / 1000)
+              .toString()
+              .padStart(2, '0')}
+            :
+            {Math.floor((time % 1000) / 10)
+              .toString()
+              .padStart(2, '0')}
           </span>
         </div>
         <div className="score-container">
@@ -81,25 +102,73 @@ function App() {
             <h2>Red: {pointsRed}</h2>
             <div className="faults">
               {[...Array(faultsRed)].map((_, index) => (
-                <span key={index} className="fault">X</span>
+                <span key={index} className="fault">
+                  X
+                </span>
               ))}
             </div>
-            <button className="point-button red-button" onClick={() => addPoints('red', 1)}>+1</button>
-            <button className="point-button red-button" onClick={() => addPoints('red', 2)}>+2</button>
-            <button className="point-button red-button" onClick={() => addPoints('red', 3)}>+3</button>
-            <button className="fault-button red-button" onClick={() => addFault('red')}>Add Fault</button>
+            <div className="points-buttons">
+              <button
+                className="point-button red-button"
+                onClick={() => addPoints('red', 1)}
+              >
+                +1
+              </button>
+              <button
+                className="point-button red-button"
+                onClick={() => addPoints('red', 2)}
+              >
+                +2
+              </button>
+              <button
+                className="point-button red-button"
+                onClick={() => addPoints('red', 3)}
+              >
+                +3
+              </button>
+            </div>
+            <button
+              className="fault-button red-button"
+              onClick={() => addFault('red')}
+            >
+              Add Fault
+            </button>
           </div>
           <div className="team blue">
             <h2>Blue: {pointsBlue}</h2>
             <div className="faults">
               {[...Array(faultsBlue)].map((_, index) => (
-                <span key={index} className="fault">X</span>
+                <span key={index} className="fault">
+                  X
+                </span>
               ))}
             </div>
-            <button className="point-button blue-button" onClick={() => addPoints('blue', 1)}>+1</button>
-            <button className="point-button blue-button" onClick={() => addPoints('blue', 2)}>+2</button>
-            <button className="point-button blue-button" onClick={() => addPoints('blue', 3)}>+3</button>
-            <button className="fault-button blue-button" onClick={() => addFault('blue')}>Add Fault</button>
+            <div className="points-buttons">
+              <button
+                className="point-button blue-button"
+                onClick={() => addPoints('blue', 1)}
+              >
+                +1
+              </button>
+              <button
+                className="point-button blue-button"
+                onClick={() => addPoints('blue', 2)}
+              >
+                +2
+              </button>
+              <button
+                className="point-button blue-button"
+                onClick={() => addPoints('blue', 3)}
+              >
+                +3
+              </button>
+            </div>
+            <button
+              className="fault-button blue-button"
+              onClick={() => addFault('blue')}
+            >
+              Add Fault
+            </button>
           </div>
         </div>
       </header>
